@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_0iqbmnc" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="softwareDec" name="select_reporting_tool">
+    <extensionElements>
+      <biodi:bounds x="365" y="154" width="180" height="80" />
+      <biodi:edge source="InputData_0pl501t">
+        <biodi:waypoints x="260" y="291" />
+        <biodi:waypoints x="375" y="234" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0yxui5n">
+        <biodi:waypoints x="445" y="335" />
+        <biodi:waypoints x="451" y="234" />
+      </biodi:edge>
+      <biodi:edge source="InputData_0qjahyy">
+        <biodi:waypoints x="611" y="242" />
+        <biodi:waypoints x="545" y="222" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_0pl501t" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_0yxui5n" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_0qjahyy" />
+    </informationRequirement>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="enduser">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>enduser</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0bp6tql">
+          <text>"internal","B2B Customer"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1taxlxd" label="datasource">
+        <inputExpression id="LiteralExpression_02pd0rn" typeRef="string">
+          <text>datasource</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0v3fc06">
+          <text>"My SQL","Microsoft SQL Server"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_15o5m1z" label="datavisualization">
+        <inputExpression id="LiteralExpression_0grheub" typeRef="boolean">
+          <text>datavisualization</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" name="reporting tool" typeRef="string">
+        <outputValues id="UnaryTests_1gzh2rd">
+          <text>"Sisense","MS Reporting Service"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1241bdo">
+        <inputEntry id="UnaryTests_1tt1j86">
+          <text>"B2B Customer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wtnzaq">
+          <text>"My SQL"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d1wxb9">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hk69g1">
+          <text>"Sisense"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1776eox">
+        <inputEntry id="UnaryTests_0f7dzxs">
+          <text>"B2B Customer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1diobjb">
+          <text>"Microsoft SQL Server"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14fe95k">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qb3z16">
+          <text>"Sisense"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cwrxn2">
+        <inputEntry id="UnaryTests_0u5q8bc">
+          <text>"B2B Customer"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vdmivj">
+          <text>"Microsoft SQL Server"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r98aiz">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_073p8fk">
+          <text>"MS Reporting Service"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08hndzt">
+        <inputEntry id="UnaryTests_0mxpacn">
+          <text>"internal"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l26ng8">
+          <text>"Microsoft SQL Server"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08vpqoq">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tqhfzy">
+          <text>"Sisense"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bu8f8s">
+        <inputEntry id="UnaryTests_1c9nr0y">
+          <text>"internal"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e8a7pn">
+          <text>"Microsoft SQL Server"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m2qt8i">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l4zp0m">
+          <text>"MS Reporting Service"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kmnx3k">
+        <inputEntry id="UnaryTests_1izd57l">
+          <text>"internal"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gifxlx">
+          <text>"My SQL"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pc5ao9">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0oa5wre">
+          <text>"Sisense"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05zjegr">
+        <inputEntry id="UnaryTests_0g899ya">
+          <text>"internal"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n1yfd9">
+          <text>"My SQL"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1moxvy6">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g67vrk">
+          <text>"MS Reporting Service"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0pl501t" name="end user">
+    <extensionElements>
+      <biodi:bounds x="151" y="291" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0yxui5n" name="date source">
+    <extensionElements>
+      <biodi:bounds x="380" y="335" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_0qjahyy" name="data visualization">
+    <extensionElements>
+      <biodi:bounds x="611" y="238" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>
